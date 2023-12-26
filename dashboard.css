@@ -2,42 +2,80 @@
     --main-color: #fca5a5;
     --secondary-color: #fecaca;
     --thirdary-color: #fef2f2;
-    font-family: arial;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: var(--thirdary-color);
+    font-family: 'Raleway', 'Courier New';
 }
 
 .content {
     display: grid;
     grid-template-columns: 1fr 8fr;
-    grid grid-template-rows: 1;
+    grid-template-rows: 1;
     min-height:100vh;
 }
 
 .side_nav {
     grid-column: 1;
     background-color: var(--main-color);
-    padding: 20px;
     z-index: 10;
+    padding: 20px;
+    color: white;
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+    align-content: start;
 }
 
-.side_nav a {
-    display: block;
-    color: white;
+a {
     text-decoration: none;
-    padding: 20px;
-    font-weight: bold;
+    color: white;
+    float: left;
+}
+
+a:hover {
+    background-color: var(--secondary-color);
+}
+
+.logo_block {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 50px;
+    font-size: 130%;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo_block svg {
+    height: 80%;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.nav_item {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 50px;
+    align-items: center;
+}
+
+svg {
+    height: 50%;
 }
 
 .main_window {
     grid-column: 2;
     display: grid;
     grid-template-columns: 1;
-    grid-template-rows: 1fr 9fr;
+    grid-template-rows: 10% 90%;
 }
 
 .top_bar {
@@ -53,7 +91,7 @@ body {
     padding: 20px;
     background-color: var(--thirdary-color);
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 1fr;
     grid-template-rows: 1;
 }
 
@@ -61,7 +99,7 @@ body {
     grid-column: 1;
     padding: 5px;
     display: grid;
-    grid-template-columns: 2;
+    grid-template-columns: repeat(2, auto);
     grid-template-rows: auto;
     gap: 30px;
     align-content: start;
@@ -76,7 +114,6 @@ body {
     padding-bottom: 50px;
     background-color: white;
     max-height: 280px;
-    overflow: scroll;
     border-radius: 5%;
     box-shadow: 3px 3px 7px grey;
     margin-top: 0;
@@ -86,4 +123,24 @@ body {
 .news {
     grid-column: 2;
     padding: 20px;
+}
+
+@media screen and (max-width:750px) {
+    .main_corner {
+        grid-row: 2;
+        padding: 20px;
+        background-color: var(--thirdary-color);
+        display: flex;
+        flex-direction: column;
+    }
+    .news {
+        grid-column: none;
+        padding: 20px;
+    }
+    .projects {
+        grid-column: none;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+    }
 }
