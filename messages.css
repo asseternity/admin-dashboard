@@ -1,0 +1,68 @@
+:root {
+    --main-color: #fca5a5;
+    --secondary-color: #fecaca;
+    --thirdary-color: #fef2f2;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: var(--thirdary-color);
+    font-family: 'Raleway';
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    min-height: 100%;
+    display: grid;
+    grid-template-areas: 
+        'side project search search'
+        'side people chat right'
+        'side new_message chat right'
+    ;
+    grid-template-columns: 125px 1fr 8fr 1fr;
+    grid-template-rows: 75px auto 150px;
+}
+
+.project_bar {
+    padding: 20px;
+    background-color: var(--secondary-color);
+    grid-area: project;
+}
+
+.search_bar {
+    padding: 20px;
+    background-color: var(--secondary-color);
+    grid-area: search;
+}
+
+.side_nav {
+    background-color: var(--main-color);
+    padding: 20px;
+    grid-area: side;
+}
+
+.contacts_container {
+    padding: 20px;
+    grid-area: people;
+}
+
+.new_message_footer {
+    padding: 20px;
+    grid-area: new_message;
+}
+
+.chat_container {
+    padding: 20px;
+    grid-area: chat;
+}
+
+.profile_window {
+    padding: 20px;
+    grid-area: right;
+}
