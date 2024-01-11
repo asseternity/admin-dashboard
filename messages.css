@@ -22,47 +22,183 @@ ul {
     display: grid;
     grid-template-areas: 
         'side project search search'
-        'side people chat right'
-        'side new_message chat right'
+        'side main main main'
     ;
-    grid-template-columns: 125px 1fr 8fr 1fr;
-    grid-template-rows: 75px auto 150px;
+    grid-template-columns: 125px 1fr 6fr 4fr;
+    grid-template-rows: 100px auto;
 }
 
 .project_bar {
     padding: 20px;
     background-color: var(--secondary-color);
     grid-area: project;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
 }
 
 .search_bar {
     padding: 20px;
     background-color: var(--secondary-color);
     grid-area: search;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search_bar input {
+    font-size: 120%;
+    font-family: 'Raleway';
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.search_bar form {
+    flex-grow: 1;
 }
 
 .side_nav {
     background-color: var(--main-color);
     padding: 20px;
     grid-area: side;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    box-shadow: 3px 0px 10px 0px grey;
+    z-index: 10;
+}
+
+.side_nav li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    color:white;
+}
+
+.side_nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.side_nav li:hover {
+    background-color: palevioletred;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+        'people chat right'
+        'new_message chat right'
+    ;
+    grid-template-columns: 1fr 5fr 3fr;
 }
 
 .contacts_container {
-    padding: 20px;
     grid-area: people;
+    margin: 0;
+    padding: 0;
+}
+
+.contact_group {
+    font-weight: 700;
+    display: block;
+    margin: 10px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.contact_name + .contact_group {
+    margin-top: 20px;
+}
+
+.contact_name {
+    padding: 10px;
+    padding-left: 15px;
+    font-size: 75%;
+}
+
+.contact_name:hover {
+    background-color: palevioletred;
 }
 
 .new_message_footer {
-    padding: 20px;
     grid-area: new_message;
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+.new_message_footer button {
+    padding: 20px;
+    background-color: var(--thirdary-color);
+    font-family: 'Raleway';
+    border: none;
+    width: 100%;    
+}
+
+.new_message_footer button:hover {
+    background-color: var(--main-color);
 }
 
 .chat_container {
     padding: 20px;
     grid-area: chat;
+    display: grid;
+    grid-template-rows: auto 80px;
+}
+
+.sender {
+    font-weight: 700;
+}
+
+.message + .sender {
+    margin-top: 20px;
+}
+
+.new_message textarea {
+    resize: none;
+    font-family: 'Raleway';
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    min-width: none;
 }
 
 .profile_window {
-    padding: 20px;
     grid-area: right;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: end;
+    align-content: start;
+}
+
+.profile_card {
+    background-color: var(--main-color);
+    padding: 15px;
+    margin: 10px;
+}
+
+.person_name {
+    font-weight: 700;
+}
+
+.person_active {
+    font-style: italic;
+}
+
+@media screen and (max-width:560px) {
+    .main {
+        grid-template-areas: 
+            'people'
+            'new_message'
+            'chat'
+            'right'
+        ;
+        grid-template-columns: 1fr;
+    }
 }
